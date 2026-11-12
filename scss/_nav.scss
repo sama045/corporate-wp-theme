@@ -1,0 +1,319 @@
+$menucolour:#fff;
+$backgroundmenu:transparent;
+$highlight:#c21101;
+$lighttext:#073c06;
+$blacktext:#000;
+
+@mixin linear-gradient-b($args...) {
+ background-image: -o-linear-gradient($args); 
+ background-image: -moz-linear-gradient($args); 
+ background-image: -webkit-linear-gradient($args); 
+  background-image: linear-gradient($args); 
+}
+
+/* nav */
+.nav {
+
+  font-size:1em;
+  text-align: center;
+  width:50%;
+  transition: all .5s ease-in-out;
+  
+
+  .menu-toggle{
+    display: block;   
+    background-color:transparent;    
+    text-decoration: none;
+    text-align:center;
+    font-size:2em;
+    border-radius: 5px;
+    top: 10px;
+    left: 10px;
+    transition: all .5s ease-in-out;
+    z-index: 9999;
+    position: absolute;
+
+  }
+
+  .menu-toggle-text{
+    font-size:0.55em;
+    display:block;
+  }
+
+  .no-js & .menu-toggle{
+    display:none;
+  }
+
+  .expanded-menu-toggle{
+    left: 85%;
+  }
+
+  .no-fontface & .icon-menu:before{
+    display:none;
+  }
+
+}
+
+
+
+  /* .menu is visually hidden by default */
+.top-nav {
+  position:relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  list-style:none;
+  z-index:1;
+  border: 0; 
+  margin: -1px auto; 
+  overflow: hidden; 
+  padding: 0; 
+  transition: all .5s ease-in-out;
+  
+      
+  li {
+
+    a {
+      display: block;      
+      font-size:15px;
+      text-decoration: none;
+      text-align:left;
+      text-transform: uppercase;
+      color:$menucolour;
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      
+      &:before {
+          position: absolute;
+          bottom: -0.5rem;
+          left: 0;
+          width: calc(100% - 3px);
+          height: 0.2rem;
+          content: '';
+          transition: transform 0.3s ease-in-out;
+          transform: scaleX(0);
+          transform-origin: center right;
+          background-color: #fff;
+      }
+      &:hover {
+        &:before {
+          transition: transform 0.3s ease-in-out;
+          transform: none;
+          transform-origin: center left;
+        }
+      }
+    }
+    
+    /* no sub menus for mobile */
+    ul.sub-menu, ul.children {   
+      display:none;
+    }
+  } /* end .menu li */
+} /* end .menu */
+
+@media only screen and (min-width: 30.1em) { /*481 ish px*/
+  
+  .top-nav {
+      li {
+        float:left;
+        width:50%;
+      }
+    }
+  
+}
+
+
+@media only screen and (min-width: 700px) {
+  
+  .nav {
+    .menu-toggle,.mobile-menu{
+      display:none;
+    }
+  }
+  .top-nav, .no-js .top-nav, .expanded-mobile-menu {
+    /* no longer hidden by default! */
+    margin:0;
+    overflow:visible;
+      
+    li {
+      float:none;
+      width:auto;
+      display:inline-block;
+      position: relative;
+      vertical-align:middle;
+      
+      .lt-ie8 &{
+        /* inline-block fix for old ie (relevant if they're served larger media queries in an IE stylesheet or something similar...*/
+        display:inline;
+        zoom:1;
+      }
+        
+      a {
+        padding:0.5em 1em;
+        
+        &:hover, &:focus {
+        }
+      }
+
+      
+      /* DROP DOWNS */
+      ul.sub-menu,
+        ul.children {
+        display:block;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        left:0;
+        white-space:nowrap;
+        text-align:left;
+        
+        /* visually hidden */
+        opacity:0;
+        visibility: hidden;
+        border: 0; 
+        margin: -1px 0; 
+        overflow: hidden; 
+        padding: 0;
+        
+        li {
+          display:block;
+          padding:0.2em 0.4em 0;
+          a {
+            color: #fff;
+            font-size:12px;
+            padding:0.8em 3em 0.8em 0.5em;
+            display:block;
+            line-height:1.5;
+            border: 0;
+            margin:0;
+            text-align:left;
+            background:transparent;
+              
+              &:hover,
+              &:focus {
+              }
+              &:before {
+                border: 0 none;
+              }
+            }
+            &:last-child {
+              a {
+                border-bottom: 0;
+              }
+            }
+            /* could go deeper here... */
+          }
+        }
+        
+      /* showing sub-menus */
+      &:hover ul, &.focused ul,.sub-menu {
+        visibility: visible;
+        min-height:8em;
+        max-height:100em;
+        background: $highlight;
+        opacity:1;
+        transition: all 0.5s ease-in-out;
+        
+        ul {
+          min-height:0;
+          padding:0;
+        }
+      }
+
+      
+        
+    } /* end .menu ul li */
+  } /* end .menu */
+  
+}/* end media query*/
+@media only screen and (max-width:768px) { 
+  .menu-toggle {
+    display: block !important;
+    width: 45px;
+    height: 45px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    span {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background: $red;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    span:nth-child(1) {
+      top: 0px;
+    }
+
+    span:nth-child(3) {
+      top: 18px;
+    }
+
+    span:nth-child(4) {
+      top: 36px;
+    }
+
+    &.expanded-menu-toggle span:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+
+    &.expanded-menu-toggle span:nth-child(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      top: 18px;
+    }
+
+    &.expanded-menu-toggle span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    &.expanded-menu-toggle span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+  }
+  .top-nav {
+    left: -100%;
+    padding: 5rem 2rem 5rem;
+    li {
+      flex-basis: 100%;
+      padding: 10px;
+      a {
+          color: $black;
+          font-size: 18px;
+      }
+    }
+  }
+  .expanded-mobile-menu {
+    left: 0;    
+  }
+
+  .nav {
+    position: absolute;
+    top: 0;
+    border: 0;
+    z-index: 9996;
+  }
+  .nav-expanded {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+  }
+
+}
+

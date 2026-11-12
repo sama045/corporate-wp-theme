@@ -1,0 +1,31 @@
+/*
+  Theme Name: Login4-001
+  Description: HTML5 Blank WordPress Theme
+  Version: 1.1.1
+  Author: Saitip (@sama045)
+  Tags: Blank, HTML5, CSS3, Flexbox
+*/
+$maincolour:#C21102;
+$menucolour:#021921;
+$lightgold:#f1e767;
+$gold:#ffcc22;
+$lighttext:#073c06;
+$red:#d10000;
+$black:#333333;
+$bgbackground:#1e2023;
+$white:#ffffff;
+$font:"helvetica","Prompt";
+$bgcolor:#cc3f00;
+$boder:1px #363636 solid;
+@mixin linear-gradient-b($args...) {
+ background-image: -o-linear-gradient($args); 
+ background-image: -moz-linear-gradient($args); 
+ background-image: -webkit-linear-gradient($args); 
+ background-image: linear-gradient($args); 
+}
+
+@import "structure";
+@import "nav";
+@import "design";
+@import "slider";
+@import "responsive";

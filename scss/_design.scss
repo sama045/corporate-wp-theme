@@ -1,0 +1,249 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background: url(https://www.codium.co/assets/images/polygon_crop.png) no-repeat right;
+    background-size: cover;
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    right: 40%;
+    top: -25%;
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -2;
+  }
+}
+
+.home {
+  
+  .col-2 {
+  }
+  h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    text-transform: uppercase;
+  }
+  p {
+    line-height: 2em;
+  }
+  &:after {
+    background: url(../images/01.jpg) no-repeat;
+    background-size: cover;
+  }
+}
+.service {
+  &:after {
+    background: url(../images/02.jpg) no-repeat;
+    background-size: cover;
+  }
+  .service-page {
+    height: 100vh;
+    align-content: center;
+    .slides {
+      li {
+        .icon {
+          font-size: 10rem;
+          color: $red;
+        }
+      }
+    }
+  }
+  .col-2 {
+    overflow: hidden;
+  }
+}
+.type-cursor {
+  display: block;
+  height:40px;
+  color: $red;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.intro-buttons {
+  display: flex;
+  flex-flow: row wrap;
+
+  .button {
+    display: flex;
+    padding: 10px 20px;
+    margin-top: 5%;
+    transition: all 0.3s;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    border: 1px transparent solid;
+
+    &-red {
+      color: #fff;
+      margin-right: 1.5rem;
+      background: #c1272c;
+      background: -moz-linear-gradient(left, #c1272c 0%, #ff0000 100%);
+      background: -webkit-gradient(left top, right top, color-stop(0%, #c1272c), color-stop(100%, #ff0000));
+      background: -webkit-linear-gradient(left, #c1272c 0%, #ff0000 100%);
+      background: -o-linear-gradient(left, #c1272c 0%, #ff0000 100%);
+      background: -ms-linear-gradient(left, #c1272c 0%, #ff0000 100%);
+      background: linear-gradient(to right, #c1272c 0%, #ff0000 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1272c', endColorstr='#ff0000', GradientType=1 );
+    }
+    &-default {
+      border: 1px solid;
+    }
+  }
+}
+.contact-us {
+  &:after {
+    background: url(../images/05.jpg) no-repeat;
+    background-size: cover;
+  }
+  article {
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    p {
+      color: $red;
+    }
+  }
+}
+address {
+  font-style: normal;
+  margin: 5px 5px 8% 5px;
+  line-height: 1.5em;
+}
+.phone,.email {
+  &:before {
+    font-family: 'icomoon'; 
+    padding-right: 5px;   
+  }
+}
+.phone {
+  &:before {
+    content: "\f095";
+
+  }
+}
+.email {
+  &:before {
+    content: "\e900";
+  }
+}
+.who-we-are {
+
+  overflow-y: auto;
+  &:before,&:after {
+    display: none;
+  }
+  h1 {
+    padding-top: 8%;
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: $white;
+    span {
+      color: $red;
+    }
+  }  
+  .intro-buttons {
+    margin-bottom: 15%;
+    justify-content: center;
+    line-height: 18px;
+    display: inline-flex;
+    text-align: center;
+    .button-default {
+      color: #fff;
+      border-color: #fff; 
+    }
+  }
+  .tophead {
+    text-align: center;
+  }
+  img {
+    display: block;
+    margin: auto;
+  }
+  .col-2 {
+    padding: 10px;
+  }
+  .column {
+    p {
+      padding: 5% 10%;
+      color: $red;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+  .footer {
+    position: static;
+    text-align: center;
+  }
+
+}
+.thumbnail {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+.red {
+  color: $red;
+}
+.grey {
+  background: #F2F2F2;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.center-boder {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3%;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background-color: $red;
+    width: 12%;
+    height: 3px;
+    transform: translate(-50%, -50%);
+  }
+}
+.carees {
+  &:after {
+    background: url(../images/03.jpg) no-repeat;
+    background-size: cover;
+  }
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .flexslider {
+    width: 100%;
+  }
+}
